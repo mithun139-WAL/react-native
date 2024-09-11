@@ -1,27 +1,28 @@
 import { View, StyleSheet, Text } from "react-native";
+import React from 'react';
 import { useHeaderHeight } from "@react-navigation/elements";
 import { Colors } from "@/constants/Colors";
+import NotesList from "@/components/NoteList";
 
-export default function HomeScreen() {
+const note = () => {
   const headerHeight = useHeaderHeight();
+
   return (
-    <>
-      <View style={[styles.titleContainer, {paddingTop: headerHeight}]}>
-        <Text style={styles.headingTxt}>Welcome</Text>
+      <View style={[styles.titleContainer, { paddingTop: headerHeight }]}>
+        <NotesList />
       </View>
-    </>
   );
 }
 
+export default note;
 const styles = StyleSheet.create({
   titleContainer: {
     flex: 1,
-    paddingHorizontal: 20,
-    backgroundColor: Colors.white
+    backgroundColor: Colors.white,
   },
   headingTxt: {
     fontSize: 20,
     fontWeight: '800',
-    marginTop:40,
-  }
+    marginTop: 20,
+  },
 });
